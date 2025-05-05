@@ -1,14 +1,5 @@
 <?php 
-    $host = "127.0.0.1";
-    $database_name = "todolist"; // connect to which database
-    $database_user = "root";
-    $database_password = "";
-
-    $database = new PDO(
-        "mysql:host=$host;dbname=$database_name",
-        $database_user, //username
-        $database_password //password
-    );
+    $database = connectToDB();
 
     $completed = $_POST["completed"];
     $id  = $_POST["id"];

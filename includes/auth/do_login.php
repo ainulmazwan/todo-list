@@ -1,19 +1,5 @@
 <?php
-    // start session (we want to use $_SESSION in the page)
-    session_start();
-
-    $host = "127.0.0.1";
-    $database_name = "todolist"; // connect to which database
-    $database_user = "root";
-    $database_password = "";
-    
-    // 2. connect PHP with MySQL database
-    // PDO (PHP database object)
-    $database = new PDO(
-        "mysql:host=$host;dbname=$database_name",
-        $database_user, //username
-        $database_password //password
-    );
+    $database = connectToDB();
 
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -42,7 +28,7 @@
                 $_SESSION["user"] = $user;
 
                 // 8. redirect back to index.php
-                header("Location: index.php");
+                header("Location: /");
             }else{
                 echo "The password provided is incorrect";
             }
